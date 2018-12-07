@@ -1,0 +1,18 @@
+function c = findOptimalRegions(samples, regions, numRegions)
+
+for i = 1: numRegions
+    lowerBound = regions(1, i-1);
+    upperBound = regions(1, i);
+    sum = [];
+    for j = lowerBound : upperBound 
+        samplesBetween = getSamplesBetween(samples, lowerBound, upperBound);
+        numOfSamplesBetween = length(samplesBetween);
+        temp = 0;
+        for k = 1 : numOfSamplesBetween
+            temp = temp + _power(samplesBetween(1, k) - )
+        
+    
+
+
+end
+
