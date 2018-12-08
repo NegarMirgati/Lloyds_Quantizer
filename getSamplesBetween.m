@@ -10,20 +10,13 @@ function samplesBetween = getSamplesBetween(samples, lowerBound, upperBound)
     if(isempty(temp))
         if(lowerBound ~= Inf && upperBound ~= Inf)
             newRand = (upperBound - lowerBound)* normrnd(0,1) + lowerBound;
-            %disp(newRand);
             temp = [temp, newRand];
         else if (lowerBound == -Inf) 
              newRand = (upperBound - upperBound/2)* normrnd(0,1) + upperBound/2;
              temp = [temp, newRand];
-              %disp('kkkk');
-              %disp(newRand);
         else if (upperBound == Inf) 
              newRand = (2 * lowerBound - lowerBound)* normrnd(0,1) + lowerBound;
              temp = [temp, newRand];
-              %disp('zzzzz');
-              %disp(lowerBound);
-              %disp('jjjj');
-              %disp(newRand);
             end
             end
         end

@@ -7,7 +7,7 @@ function outputs = lloydsQuantizer(samples, regions, numRegions)
      c = findOptimalRegions(samples, regions, numRegions);
      regions = updateRegions(c, numRegions);
      i = i + 1;
-     done = hasConverged(c_prev, c);
+     done = hasConverged(c_prev, c, i);
      c_prev = c ;
  end
     str = sprintf('convergence occured after %d iterations', i);
