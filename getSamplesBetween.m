@@ -6,6 +6,10 @@ for i = 1 : size
     if(samples(1, i) > lowerBound && samples(1, i) < upperBound)
          temp = [temp, samples(1, i)];
     end
+    if(isempty(temp))
+        newRand = (upperBound - lowerBound)* normrnd(0,1) + lowerBound;
+        temp = [temp, newRand];
+    end
     samplesBetween = temp;
 end
 end
