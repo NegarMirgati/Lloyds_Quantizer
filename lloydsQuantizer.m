@@ -1,11 +1,12 @@
 function outputs = lloydsQuantizer(samples, regions, numRegions)
  i = 0;
  c = [];
- while (i < 100)
+ c_prev = [];
+ while (hasConverged(c_prev, c) == false)
      c = findOptimalRegions(samples, regions, numRegions);
-     disp(i);
-     updateRegions(c, numRegions -1);
+     regions = updateRegions(c, numRegions);
      i = i + 1;
+     c_prev = c ;
  end
     outputs = c;
 

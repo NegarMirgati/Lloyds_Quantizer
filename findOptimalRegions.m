@@ -1,19 +1,20 @@
 function c = findOptimalRegions(samples, regions, numRegions)
-
-for i = 2: numRegions - 1
+c = zeros(0, numRegions);
+for i = 1 : numRegions
     lowerBound = regions(1, i);
     upperBound = regions(1, i + 1);
-    sum = [];
-    for x = floor(lowerBound) : floor(upperBound) 
-        samplesBetween = getSamplesBetween(samples, lowerBound, upperBound);
-        numOfSamplesBetween = length(samplesBetween);
+    samplesBetween = getSamplesBetween(samples, lowerBound, upperBound);
+    %disp(length(samplesBetween));
+    sum_dists = zeros(1, length(samplesBetween));
+    for x = 1 : numel(samplesBetween)
         temp = 0;
-        for k = 1 : numOfSamplesBetween
-            temp = temp + power(samplesBetween(1, k) - x, 2);
+        for xk = 1 : numel(samplesBetween)
+            temp = temp + power(samplesBetween(1, x) - samplesBetween(1, xk), 2);
         end
-        sum = [sum, temp];
+        sum_dists(1, x) = temp;
     end
-    c(1, i) = min(sum);
+    [val, idx] = min(sum_dists);
+    c(1, i) = idx ;
 end
   
 end
