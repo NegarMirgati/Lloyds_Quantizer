@@ -10,7 +10,8 @@ function outputs = lloydsQuantizer(samples, regions, numRegions)
      done = hasConverged(c_prev, c);
      c_prev = c ;
  end
-    disp(i);
+    str = sprintf('convergence occured after %d iterations', i);
+    disp(str);
     outputs = c;
 
 end
